@@ -1,7 +1,15 @@
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/tomwaltrich/'
+  }
+} : {}
+
 module.exports = {
   /*
   ** Headers of the page
   */
+  ...routerBase,
+  mode: 'universal',
   head: {
     title: 'tomwaltrich',
     meta: [
