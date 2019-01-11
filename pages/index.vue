@@ -8,14 +8,11 @@
         <span v-html="bio" class="bio"></span>
       </h2>
       <div class="links">
-        <a
+        <a v-for="item in projects.entries"
+           :key="item.title"
           href=""
           target="_blank"
-          class="button--green">Blooming</a>
-        <a
-          href=""
-          target="_blank"
-          class="button--grey">Ancient Animal Orchestra</a>
+          class="button--green">{{ item.title }}</a>
       </div>
     </div>
   </section>
@@ -31,7 +28,8 @@ export default {
     const apiUrl = process.env.cockpit.apiUrl
     const token = process.env.cockpit.apiToken
     const bio = await $axios.$get(`${apiUrl}/singletons/get/bio/text?token=${token}`);
-    return { bio }
+    const projects = await $axios.$get(`${apiUrl}/collections/get/projects?token=${token}`)
+    return { bio, projects }
   }
 }
 </script>

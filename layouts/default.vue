@@ -28,6 +28,7 @@ html {
   color: #3b8070;
   text-decoration: none;
   padding: 10px 30px;
+  margin: 0 20px;
 }
 
 .button--green:hover {
