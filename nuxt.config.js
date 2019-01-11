@@ -27,9 +27,9 @@ module.exports = {
   loading: { color: '#3B8070' },
   env: {
     cockpit: {
-      apiUrl: 'http://tom.camsexton.com/api',
-      apiToken: '571bb3593a2cfb917e8a7f37ce2036',
-      baseUrl: 'http://tom.camsexton.com/'
+      apiUrl: 'https://tom.camsexton.com/api',
+      apiToken: '9d4d784998060fba6ce3b6b3c9b617',
+      baseUrl: 'https://tom.camsexton.com/'
     }
   },
   modules: [

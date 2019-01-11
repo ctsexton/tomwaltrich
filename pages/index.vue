@@ -4,8 +4,8 @@
       <h1 class="title">
         thomas waltrich
       </h1>
-      <h2 class="subtitle">
-        {{ bio }}
+      <h2 class="description">
+        <span v-html="bio" class="bio"></span>
       </h2>
       <div class="links">
         <a
@@ -30,7 +30,7 @@ export default {
   async asyncData({ $axios }) {
     const apiUrl = process.env.cockpit.apiUrl
     const token = process.env.cockpit.apiToken
-    const bio = await $axios.$get(`${apiUrl}/singletons/get/biography/biotext?token=${token}`);
+    const bio = await $axios.$get(`${apiUrl}/singletons/get/bio/text?token=${token}`);
     return { bio }
   }
 }
@@ -54,16 +54,20 @@ export default {
   letter-spacing: 1px;
 }
 
-.subtitle {
+.description {
   font-weight: 300;
   font-size: 20px;
   color: #526488;
   word-spacing: 5px;
-  padding-bottom: 15px;
+  padding: 5em;
 }
 
 .links {
   padding-top: 15px;
+}
+
+.bio > p {
+  padding: 1em 0;
 }
 </style>
 
