@@ -18,13 +18,18 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic|Material+Icons' },
+      { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Raleway:200,300,400,500,700' }
     ]
   },
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  /*
+   ** Environment Vars
+   */
   env: {
     cockpit: {
       apiUrl: 'https://tom.camsexton.com/api',
@@ -39,6 +44,13 @@ module.exports = {
     proxyHeaders: false,
     credentials: false
   },
+  css: [
+    { src: 'vue-material/dist/vue-material.min.css', lang: 'css' },
+    { src: '~/assets/theme.scss', lang: 'scss' } // include vue-material theme engine
+  ],
+  plugins: [
+    { src: '~/plugins/vue-material' }
+  ],
   /*
   ** Build configuration
   */

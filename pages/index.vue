@@ -1,29 +1,48 @@
 <template>
-  <section class="container">
-    <div>
-      <h1 class="title">
-        thomas waltrich
-      </h1>
-      <h2 class="description">
-        <span v-html="bio" class="bio"></span>
-      </h2>
-      <div class="links">
-        <a v-for="item in projects.entries"
-           :key="item.title"
-          href=""
-          target="_blank"
-          class="button--green">{{ item.title }}</a>
-      </div>
-    </div>
-  </section>
+  <md-app class="container">
+    <md-app-toolbar class="md-accent">
+      <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
+        <md-icon>menu</md-icon>
+      </md-button>
+    </md-app-toolbar>
+    <md-app-drawer md-permanent="full" :md-active.sync="menuVisible">
+      <md-app-toolbar class="md-transparent" md-elevation="0">
+        <span class="md-title">tom waltrich</span>
+      </md-app-toolbar>
+      <md-list>
+        <md-list-item v-for="item in menu" :key="item">
+          <md-button href="" target="_blank" class="md-flat">
+            {{ item }}
+            <md-icon>add</md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </md-app-drawer>
+    <md-app-content class="md-body-2">
+      <span v-html="bio" class="bio"></span>
+    </md-app-content>
+  </md-app>
 </template>
 
 <script>
+import Navigation from '@/components/Navigation.vue'
+import Toolbar from '@/components/Toolbar.vue'
 export default {
   components: {
+    Navigation,
+    Toolbar
   },
-  data () {
-  },
+  data: () => ({
+    menuVisible: false,
+    menu: [
+      'video',
+      'teaching',
+      'projects',
+      'about',
+      'gigs',
+      'contact'
+    ]
+  }),
   async asyncData({ $axios }) {
     const apiUrl = process.env.cockpit.apiUrl
     const token = process.env.cockpit.apiToken
@@ -37,35 +56,8 @@ export default {
 <style>
 .container {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  font-family: "Raleway", "sans-serif";
 }
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 60px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.description {
-  font-weight: 300;
-  font-size: 20px;
-  color: #526488;
-  word-spacing: 5px;
-  padding: 5em;
-}
-
-.links {
-  padding-top: 15px;
-}
-
-.bio > p {
-  padding: 1em 0;
-}
 </style>
 
