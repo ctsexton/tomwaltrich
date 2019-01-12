@@ -1,9 +1,10 @@
 <template>
-  <md-app-toolbar class="md-accent">
-  </md-app-toolbar>
+  <md-datepicker />
 </template>
+
 <script>
 export default {
+  computed: {
+  }
 }
 </script>
-

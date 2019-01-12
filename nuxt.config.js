@@ -9,7 +9,7 @@ module.exports = {
   ** Headers of the page
   */
   ...routerBase,
-  mode: 'spa',
+  mode: 'universal',
   head: {
     title: 'tomwaltrich',
     meta: [

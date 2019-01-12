@@ -1,9 +1,10 @@
 <template>
-  <md-app-toolbar class="md-accent">
-  </md-app-toolbar>
+  <div>Contact</div>
 </template>
+
 <script>
 export default {
+  computed: {
+  }
 }
 </script>
-
