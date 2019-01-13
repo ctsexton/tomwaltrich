@@ -11,6 +11,7 @@ const apiAddress = process.env.DEPLOY_ENV === 'SERVER' ? {
       apiToken: '9d4d784998060fba6ce3b6b3c9b617',
       baseUrl: 'http://thomaswaltrich-cms/'
     }
+  }
 } : {
   env: {
     cockpit: {
@@ -18,6 +19,7 @@ const apiAddress = process.env.DEPLOY_ENV === 'SERVER' ? {
       apiToken: '9d4d784998060fba6ce3b6b3c9b617',
       baseUrl: 'https://tom.camsexton.com/'
     }
+  }
 }
 
 module.exports = {
