@@ -49,7 +49,6 @@ module.exports = {
   /*
    ** Environment Vars
    */
-  },
   modules: [
     '@nuxtjs/axios',
 		'nuxt-mq',
