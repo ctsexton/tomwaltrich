@@ -11,8 +11,8 @@ export default {
     bio () { return this.$store.state.bio },
     imagePath () { 
       const path = this.$store.state.projects[2].image.path
-      const baseUrl = process.env.cockpit.baseUrl
-      return `${baseUrl}${path}`
+      const realUrl = process.env.cockpit.realUrl
+      return `${realUrl}${path}`
     }
   }
 }
