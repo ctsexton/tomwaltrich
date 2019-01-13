@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
-    <img :src="imagePath" class="centered">
-    <span v-html="bio"></span>
+    <img :src="imagePath" class="image--centered">
+    <span class="text--centered" id="bio" v-html="bio"></span>
   </div>
 </template>
 
@@ -10,25 +10,47 @@ export default {
   computed: {
     bio () { return this.$store.state.bio },
     imagePath () { 
-      console.log(this.$store.state.projects)
       const path = this.$store.state.projects[2].image.path
-      const apiUrl = process.env.cockpit.apiUrl
-      const token = process.env.cockpit.apiToken
-      return `https://tom.camsexton.com/${path}`
+      const baseUrl = process.env.cockpit.baseUrl
+      return `${baseUrl}${path}`
     }
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "~vue-material/src/components/MdLayout/mixins.scss";
 .flex {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: middle;
-  justify-content: center;
+  font-size: 14px;
+  padding: 0;
 }
-.centered {
+
+.image--centered {
   width: 100%;
   display: inline-block;
-  margin: 0 auto;
+  margin: 0;
 }
+
+.text--centered {
+  padding: 0 1em;
+  @include md-layout-large-and-up {
+    font-size: 1.4em;
+    line-height: 1.25em;
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 750px;
+    width: 100%;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  @media (min-width: 1440px) {
+    font-size: 1.5em;
+  }
+}
+
 </style>

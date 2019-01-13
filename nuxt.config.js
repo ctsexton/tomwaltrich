@@ -4,11 +4,28 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   }
 } : {}
 
+const apiAddress = process.env.DEPLOY_ENV === 'SERVER' ? {
+  env: {
+    cockpit: {
+      apiUrl: 'http://thomaswaltrich-cms/api',
+      apiToken: '9d4d784998060fba6ce3b6b3c9b617',
+      baseUrl: 'http://thomaswaltrich-cms/'
+    }
+} : {
+  env: {
+    cockpit: {
+      apiUrl: 'https://tom.camsexton.com/api',
+      apiToken: '9d4d784998060fba6ce3b6b3c9b617',
+      baseUrl: 'https://tom.camsexton.com/'
+    }
+}
+
 module.exports = {
   /*
   ** Headers of the page
   */
   ...routerBase,
+  ...apiAddress,
   mode: 'universal',
   head: {
     title: 'tomwaltrich',
@@ -30,16 +47,20 @@ module.exports = {
   /*
    ** Environment Vars
    */
-  env: {
-    cockpit: {
-      apiUrl: 'https://tom.camsexton.com/api',
-      apiToken: '9d4d784998060fba6ce3b6b3c9b617',
-      baseUrl: 'https://tom.camsexton.com/'
-    }
   },
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+		'nuxt-mq',
   ],
+	mq: {
+		defaultBreakpoint: 'sm',
+		breakpoints: {
+			sm: 600,
+			md: 900,
+      lg: 1200,
+      hg: 1440
+		}
+	},
   axios: {
     proxyHeaders: false,
     credentials: false

@@ -1,17 +1,25 @@
 <template>
   <md-app class="container">
-    <md-app-drawer md-permanent="full" :md-active.sync="menuVisible" class="bg-color-A">
+    <md-app-drawer
+      v-if="$mq == 'lg'"
+      md-permanent="full"
+      :md-active.sync="menuVisible"
+      class="bg-color-A md-size-5">
       <navigation :menuitems="menuitems" />
     </md-app-drawer>
-    <!--
-    <md-app-toolbar class="">
-      <md-button class="md-icon-button md-xsmall-show" @click="menuVisible = !menuVisible">
+    <md-app-drawer
+      v-else
+      :md-active.sync="menuVisible"
+      class="bg-color-A md-size-5">
+      <navigation :menuitems="menuitems" />
+    </md-app-drawer>
+    <md-app-content class="md-body-2 bg-color-C">
+      <md-button 
+        v-if="$mq != 'lg'"
+        v-on:click="menuVisible = !menuVisible" 
+        class="md-icon-button md-accent position-outside">
         <md-icon>menu</md-icon>
       </md-button>
-      <span class="md-display-2 capitalize">{{ currentPage }}</span>
-    </md-app-toolbar>
-    -->
-    <md-app-content class="md-body-2 bg-color-C">
       <nuxt />
     </md-app-content>
   </md-app>
@@ -26,7 +34,7 @@ export default {
   },
   data () {
     return {
-      menuVisible: false,
+      menuVisible: true,
     }
   },
   computed: {
@@ -53,8 +61,12 @@ html {
 }
 @import "~vue-material/src/components/MdLayout/mixins.scss";
 .container {
-  min-height: 100vh;
   font-family: "Raleway", "sans-serif";
+  height: 100vh;
+}
+
+.md-drawer {
+  width: 300px;
 }
 
 .md-xsmall-show {
@@ -65,6 +77,11 @@ html {
 }
 .capitalize {
   text-transform: capitalize;
+}
+.position-outside {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 </style>
 

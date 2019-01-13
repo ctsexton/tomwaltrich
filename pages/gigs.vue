@@ -1,5 +1,6 @@
 <template>
-  <md-datepicker />
+  <div>
+  </div>
 </template>
 
 <script>
