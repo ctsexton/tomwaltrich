@@ -1,7 +1,7 @@
 <template>
   <md-app class="container">
     <md-app-drawer
-      v-if="$mq == 'lg'"
+      v-if="$mq == 'lg' || $mq == 'hg'"
       md-permanent="full"
       :md-active.sync="menuVisible"
       class="bg-color-A md-size-5">
@@ -15,7 +15,7 @@
     </md-app-drawer>
     <md-app-content class="md-body-2 bg-color-C">
       <md-button 
-        v-if="$mq != 'lg'"
+        v-if="$mq != 'lg' && $mq != 'hg'"
         v-on:click="menuVisible = !menuVisible" 
         class="md-icon-button md-accent position-outside">
         <md-icon>menu</md-icon>
