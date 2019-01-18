@@ -2,7 +2,7 @@ export const state = () => ({
   sidebar: false,
   menuitems: {},
   projects: [],
-  bio: '',
+  bio: {},
   teaching: {},
   videos: {},
   currentPage: 'About',
@@ -44,7 +44,7 @@ export const actions = {
     console.log('calling nuxtServerInit')
     const apiUrl = process.env.cockpit.apiUrl
     const token = process.env.cockpit.apiToken
-    const bio = await $axios.$get(`${apiUrl}/singletons/get/bio/text?token=${token}`)
+    const bio = await $axios.$get(`${apiUrl}/singletons/get/bio?token=${token}`)
     const projects = await $axios.$get(`${apiUrl}/collections/get/projects?token=${token}`)
     const teaching = await $axios.$get(`${apiUrl}/singletons/get/teaching?token=${token}`)
     const videos = await $axios.$get(`${apiUrl}/collections/get/videos?token=${token}`)

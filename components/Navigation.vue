@@ -5,8 +5,7 @@
     v-model="drawer"
     fill-height
     fixed
-    app
-  >
+    app>
     <v-layout column fill-height justify-space-between align-content-space-between>
       <v-flex>
         <v-toolbar flat dark color="secondary">

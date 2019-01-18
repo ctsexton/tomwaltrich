@@ -1,9 +1,10 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
+      <v-img :src="imgPath" />
       <v-card max-width="900px">
         <v-card-text class="subheading">
-          <span id="bio" v-html="teaching.text"></span>
+          <span id="bio" v-html="teaching"></span>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -12,7 +13,12 @@
 <script>
 export default {
   computed: {
-    teaching () { return this.$store.state.teaching }
+    teaching: function () { return this.$store.state.teaching.text },
+    imgPath: function () {
+      const realUrl = process.env.cockpit.realUrl
+      const localPath = this.$store.state.teaching.image.path
+      return `${realUrl}${localPath}`
+    }
   }
 }
 </script>
