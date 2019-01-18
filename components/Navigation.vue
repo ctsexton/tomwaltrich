@@ -1,88 +1,67 @@
 <template>
-  <div>
-    <md-list class="bg-color-A">
-      <md-list-item>
-        <md-app-toolbar class="md-transparent nopadding" md-elevation="0">
-          <span class="md-headline bold md-primary">thomas waltrich</span>
-        </md-app-toolbar>
-      </md-list-item>
-      <img class="logo" src="~/static/cat_white.svg" />
-      <div v-for="item in menuitems" :key="item.name" class="md-accent">
-        <nuxt-link :to="item.link">
-          <md-list-item 
-            v-if="item.submenu.length > 0"
-            md-expand
-            :md-ripple="false"
-            :md-expanded.sync="submenus[item.name]"
-            v-on:click="doNothing">
-            <span class="md-list-item-text md-headline nounderline">{{ item.name }}</span>
-            <md-list slot="md-expand">
-              <md-list-item class="md-inset md-headline" v-for="subitem in item.submenu" :key="subitem.title">
-                {{ subitem.title }}
-              </md-list-item>
-            </md-list>
-          </md-list-item>
-        </nuxt-link>
-
-        <nuxt-link :to="item.link">
-          <md-list-item 
-            v-if="item.submenu.length == 0"
-            :md-ripple="false"
-            v-on:click="changePage(item.name)">
-            <span class="md-list-item-text md-headline nounderline">{{ item.name }}</span>
-          </md-list-item>
-        </nuxt-link>
+  <v-navigation-drawer
+    :mini-variant.sync="miniVariant"
+    :clipped="clipped"
+    v-model="drawer"
+    fill-height
+    fixed
+    app
+  >
+    <v-layout column fill-height justify-space-between align-content-space-between>
+      <v-flex>
+        <v-toolbar flat dark color="secondary">
+          <v-list>
+            <v-list-tile>
+              <v-list-tile-title class="headline font-weight-bold custom-font">
+                thomas waltrich
+              </v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-toolbar>
+        <v-layout justify-center>
+          <v-flex>
+            <div class="text-xs-center">
+              <img src="/cat_white.svg" width="65%" />
+            </div>
+          </v-flex>
+        </v-layout>
+        <v-list>
+          <v-list-tile
+            router
+            :to="item.to"
+            :key="i"
+            v-for="(item, i) in items"
+            exact
+          >
+            <v-list-tile-content>
+              <v-list-tile-title class="title white--text" v-text="item.title"></v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-flex>
+      <div class="pa-1">
+        <v-btn icon flat :href="config.instagram" color="white">
+          <v-icon x-large>fab fa-instagram</v-icon>
+        </v-btn>
       </div>
-    </md-list>
-  </div>
+    </v-layout>
+  </v-navigation-drawer>
 </template>
 <script>
-function objectMap(object, mapFn) {
-  return Object.keys(object).reduce(function(result, key) {
-    result[key] = mapFn(object[key])
-    return result
-  }, {})
-}
 export default {
   props: {
-    menuitems: Object
+    items: Array
   },
   data () {
-    var submenus = objectMap(this.menuitems, function(value) {
-      return false
-    })
     return {
-      submenus: submenus
+      clipped: false,
+      drawer: true,
+      fixed: false,
+      miniVariant: false
     }
   },
-  methods: {
-    changePage: function (name) {
-      this.$store.commit('changePage', name)
-    },
-    doNothing: function () {
-    }
+  computed: {
+    config () { return this.$store.state.generalConfig }
   }
 }
 </script>
-<style lang="scss" scoped>
-.nounderline {
-  text-decoration: none!important;
-}
-.nopadding {
-  padding: 0!important;
-}
-.bold {
-  font-weight: 700;
-}
-.logo {
-  width: 75%;
-  padding: 1em 10px;
-  margin: 0 auto;
-}
-.vertically-spaced {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-}
-</style>

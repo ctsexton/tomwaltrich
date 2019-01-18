@@ -1,9 +1,0 @@
-<template>
-  <md-app-toolbar class="md-accent">
-  </md-app-toolbar>
-</template>
-<script>
-export default {
-}
-</script>
-

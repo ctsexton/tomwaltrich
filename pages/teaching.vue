@@ -1,35 +1,18 @@
 <template>
-  <div class="container md-layout md-alignment-top-left">
-    <div class="text md-layout-item">
-      <span class="" v-html="teachingText"></span>
-    </div>
-    <div class="md-layout-item">
-      <img class="md-layout-item" :src="teachingImg" />
-    </div>
-  </div>
+  <v-layout column justify-center align-center>
+    <v-flex xs12 sm8 md6>
+      <v-card max-width="900px">
+        <v-card-text class="subheading">
+          <span id="bio" v-html="teaching.text"></span>
+        </v-card-text>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
-
 <script>
 export default {
   computed: {
-    teachingText () { return this.$store.state.teaching.text },
-    teachingImg () { 
-      const path = this.$store.state.teaching.image.path
-      const realUrl = process.env.cockpit.realUrl
-      return `${realUrl}${path}`
-    }
+    teaching () { return this.$store.state.teaching }
   }
 }
 </script>
-<style lang="scss" scoped>
-.container {
-  flex-wrap: wrap-reverse;
-}
-.img {
-  max-width: 900px;
-}
-.text {
-  background: rgba(0,0,0,0.5);
-  max-width: 900px;
-}
-</style>
