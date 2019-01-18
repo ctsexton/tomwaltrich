@@ -19,22 +19,29 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~vue-material/src/components/MdLayout/mixins.scss";
+.container {
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+}
 .flex {
   display: flex;
-  position: relative;
   flex-direction: column;
+  justify-content: center;
   align-items: middle;
+  width: 100%;
+  position: relative;
   font-size: 14px;
   padding: 0;
 }
 
 .image--centered {
-  width: 100%;
-  display: inline-block;
-  margin: 0;
+  max-height: 900px;
+  margin: 0 auto;
 }
 
 .text--centered {
+  display: none;
   padding: 0 1em;
   @include md-layout-large-and-up {
     font-size: 1.4em;

@@ -6,6 +6,7 @@
           <span class="md-headline bold md-primary">thomas waltrich</span>
         </md-app-toolbar>
       </md-list-item>
+      <img class="logo" src="~/static/cat_white.svg" />
       <div v-for="item in menuitems" :key="item.name" class="md-accent">
         <nuxt-link :to="item.link">
           <md-list-item 
@@ -72,5 +73,16 @@ export default {
 }
 .bold {
   font-weight: 700;
+}
+.logo {
+  width: 75%;
+  padding: 1em 10px;
+  margin: 0 auto;
+}
+.vertically-spaced {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>

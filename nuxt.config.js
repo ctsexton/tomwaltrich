@@ -68,13 +68,8 @@ module.exports = {
     proxyHeaders: false,
     credentials: false
   },
-  css: [
-    { src: 'vue-material/dist/vue-material.min.css', lang: 'css' },
-    { src: '~/assets/theme.scss', lang: 'scss' } // include vue-material theme engine
-  ],
-  plugins: [
-    { src: '~/plugins/vue-material' }
-  ],
+  css: ['~/assets/style/app.styl'],
+  plugins: ['~/plugins/vuetify.js'],
   /*
   ** Build configuration
   */

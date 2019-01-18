@@ -2,7 +2,8 @@ export const state = () => ({
   menuitems: {},
   projects: [],
   bio: '',
-  teaching: '',
+  teaching: {},
+  videos: {},
   currentPage: 'About'
 })
 
@@ -19,6 +20,9 @@ export const mutations = {
   replaceTeaching (state, newState) {
     state.teaching = newState;
   },
+  replaceVideos (state, newState) {
+    state.videos = newState;
+  },
   toggleSubmenu (state, info) {
     state.menuitems[info.name].open = !state.menuitems[info.name].open
   },
@@ -34,7 +38,8 @@ export const actions = {
     const token = process.env.cockpit.apiToken
     const bio = await $axios.$get(`${apiUrl}/singletons/get/bio/text?token=${token}`)
     const projects = await $axios.$get(`${apiUrl}/collections/get/projects?token=${token}`)
-    const teaching = await $axios.$get(`${apiUrl}/singletons/get/teaching/text?token=${token}`)
+    const teaching = await $axios.$get(`${apiUrl}/singletons/get/teaching?token=${token}`)
+    const videos = await $axios.$get(`${apiUrl}/collections/get/videos?token=${token}`)
     const menuitems = {
       about: {
         name: 'about',
@@ -70,6 +75,7 @@ export const actions = {
     }
     commit('replaceMenu', menuitems)
     commit('replaceBio', bio)
+    commit('replaceVideos', videos)
     commit('replaceProjects', projects.entries)
     commit('replaceTeaching', teaching)
   }
