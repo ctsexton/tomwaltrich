@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <navigation :items="items" />
-    <v-content>
+    <v-content :style="{ backgroundColor: '#dfe1de' }">
       <v-container fill-height>
         <nuxt />
       </v-container>
@@ -23,6 +23,7 @@
         items: [
           { title: 'about', to: '/' },
           { title: 'projects', to: '/projects' },
+          { title: 'recordings', to: '/recordings' },
           { title: 'video', to: '/video' },
           { title: 'teaching', to: '/teaching' },
           { title: 'gigs', to: '/gigs' },
@@ -40,5 +41,8 @@
 .xs6 {
   display: flex;
   flex-direction: column;
+}
+.bg {
+  background: #a3d8c1;
 }
 </style>

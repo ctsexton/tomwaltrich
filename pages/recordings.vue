@@ -2,13 +2,14 @@
   <v-layout justify-center>
     <v-flex xs12 class="limit">
       <v-layout column>
-        <v-flex v-for="video in videos" :key="video.title" class="my-5">
-          <v-card class="project-card my-5">
-            <v-img :src="`${basePath}${video.image.path}`" max-width="900">
+        <v-flex v-for="recording in recordings" :key="recording.title">
+          <v-card max-width="900px" width="100%" class="project-card my-5">
+            <v-img :src="`${basePath}${recording.image.path}`">
               <v-layout align-end fill-height>
                 <v-card class="img-overlay">
-                  <v-card-title class="display-1">{{ video.title }}</v-card-title>
-                  <v-card-text class="subheading"><span v-html="video.description"></span></v-card-text>
+                  <v-card-title class="display-1">{{ recording.artist }}</v-card-title>
+                  <v-card-text class="subheading">{{ recording.title }}</v-card-text>
+                  <v-card-text class="subheading">{{ recording.year }}</v-card-text>
                 </v-card>
               </v-layout>
             </v-img>
@@ -21,7 +22,7 @@
 <script>
 export default {
   computed: {
-    videos: function () { return this.$store.state.projects },
+    recordings: function () { return this.$store.state.recordings.entries },
     basePath: function () { return process.env.cockpit.realUrl }
   }
 }
@@ -37,6 +38,7 @@ export default {
 >>>.img-overlay {
   background: rgba(0,0,0,0.75);
   border-radius: 0px;
+  width: 100%;
 }
 >>>.limit {
   max-width: 900px;

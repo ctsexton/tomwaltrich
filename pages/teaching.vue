@@ -2,7 +2,7 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
       <v-img :src="imgPath" />
-      <v-card max-width="900px">
+      <v-card max-width="900px" class="project-card">
         <v-card-text class="subheading">
           <span id="bio" v-html="teaching"></span>
         </v-card-text>
@@ -22,3 +22,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+>>>.project-card {
+  padding: 2%;
+  background: rgba(0,0,0,0.5);
+}
+</style>

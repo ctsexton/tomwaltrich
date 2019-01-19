@@ -10,7 +10,7 @@
           <v-text-field label="Name" required></v-text-field>
           <v-text-field label="Email" required></v-text-field>
           <v-textarea label="Message" required></v-textarea>
-          <v-btn left large color="purple">Submit</v-btn>
+          <v-btn left large color="primary">Submit</v-btn>
         </v-form>
       </v-flex>
     </v-card>

@@ -1,8 +1,8 @@
 <template>
   <v-layout column justify-start align-center>
-    <v-card-media :aspect-ratio="16/9" v-for="video in videos" :key="video.title" width="100%" max-width="900px" class="my-5 video-card">
+    <v-responsive :aspect-ratio="16/9" v-for="video in videos" :key="video.title" width="100%" max-width="900px" class="my-5 video-card">
       <iframe :src="video.youtube_link" width="100%" height="100%" class="remove-border"></iframe>
-    </v-card-media>
+    </v-responsive>
   </v-layout>
 </template>
 <script>
