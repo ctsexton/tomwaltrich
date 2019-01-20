@@ -1,9 +1,3 @@
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: '/tomwaltrich/'
-  }
-} : {}
-
 const apiAddress = process.env.DEPLOY_ENV === 'SERVER' ? {
   env: {
     cockpit: {
@@ -24,7 +18,6 @@ const apiAddress = process.env.DEPLOY_ENV === 'SERVER' ? {
   }
 }
 module.exports = {
-  ...routerBase,
   ...apiAddress,
   /*
   ** Headers of the page
@@ -38,14 +31,15 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic|Material+Icons' },
-      { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Raleway:200,300,400,500,700' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Raleway:200,300,400,500,700' },
+      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' }
     ]
   },
   plugins: ['~/plugins/vuetify.js'],
   css: ['~/assets/style/app.styl'],
   modules: [
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
   axios: {
     proxyHeaders: false,
