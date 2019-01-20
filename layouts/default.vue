@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <navigation :items="items" />
-    <v-content :style="{ backgroundColor: '#dfe1de' }">
+    <v-content class="texture">
       <v-container fill-height>
         <nuxt />
       </v-container>
@@ -44,5 +44,11 @@
 }
 .bg {
   background: #a3d8c1;
+}
+.texture {
+  background-color: #606969;
+  background-image: url('~/squairy.png');
+  background-repeat: repeat;
+  background-attachment: scroll;
 }
 </style>
