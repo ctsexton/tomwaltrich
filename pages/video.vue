@@ -1,9 +1,13 @@
 <template>
-  <v-layout column justify-start align-center>
-    <v-responsive :aspect-ratio="16/9" v-for="video in videos" :key="video.title" width="100%" max-width="900px" class="my-5 video-card">
-      <iframe :src="video.youtube_link" width="100%" height="100%" class="remove-border"></iframe>
-    </v-responsive>
-  </v-layout>
+  <v-container fill-height grid-list-md>
+    <v-layout row justify-space-around align-start wrap>
+      <v-flex xs12 md6 v-for="video in videos" :key="video.title">
+        <v-responsive :aspect-ratio="16/9" width="100%" class="video-card">
+          <iframe :src="video.youtube_link" width="100%" height="100%" class="remove-border"></iframe>
+        </v-responsive>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 <script>
 export default {
@@ -17,7 +21,7 @@ export default {
   border: none;
 }
 >>>.video-card {
-  padding: 2%;
+  padding: 10px;
   background: rgba(0,0,0,0.5);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <navigation :items="items" />
-    <v-content class="texture">
+    <v-content :class="bgColor" class="texture">
       <v-container fill-height>
         <nuxt />
       </v-container>
@@ -30,6 +30,20 @@
           { title: 'contact', to: '/contact' }
         ],
         title: 'Vuetify.js'
+      }
+    },
+    computed: {
+      bgColor: function () {
+        const paths = {
+          '/': 'cyan lighten-2',
+          '/projects': 'blue-grey',
+          '/recordings': 'blue-grey lighten-1',
+          '/video': 'yellow accent-2',
+          '/teaching': 'yellow darken-2',
+          '/gigs': 'brown',
+          '/contact': 'brown lighten-1'
+        }
+        return paths[this.$route.path]
       }
     }
   }

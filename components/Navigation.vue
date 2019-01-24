@@ -5,7 +5,7 @@
     v-model="drawer"
     fill-height
     fixed
-    class="red"
+    :class="bgColor"
     app>
     <v-layout column fill-height justify-space-between align-content-space-between>
       <v-flex>
@@ -55,7 +55,19 @@ export default {
     }
   },
   computed: {
-    config () { return this.$store.state.generalConfig }
+    config () { return this.$store.state.generalConfig },
+    bgColor () {
+      const paths = {
+        '/': 'grey darken-4',
+        '/projects': 'red',
+        '/recordings': 'deep-purple accent-3',
+        '/video': 'red',
+        '/teaching': 'blue-grey darken-3',
+        '/gigs': 'grey lighten-1',
+        '/contact': 'red darken-4'
+      }
+      return paths[this.$route.path]
+    }
   }
 }
 </script>
