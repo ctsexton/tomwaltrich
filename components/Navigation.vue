@@ -59,12 +59,12 @@ export default {
     bgColor () {
       const paths = {
         '/': 'grey darken-4',
-        '/projects': 'red',
-        '/recordings': 'deep-purple accent-3',
-        '/video': 'red',
-        '/teaching': 'blue-grey darken-3',
-        '/gigs': 'grey lighten-1',
-        '/contact': 'red darken-4'
+        '/projects': 'cyan darken-2',
+        '/recordings': 'red',
+        '/video': 'pink darken-4',
+        '/teaching': 'green lighten-1',
+        '/gigs': 'blue-grey',
+        '/contact': 'yellow darken-3'
       }
       return paths[this.$route.path]
     }
