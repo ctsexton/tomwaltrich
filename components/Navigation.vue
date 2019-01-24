@@ -5,18 +5,13 @@
     v-model="drawer"
     fill-height
     fixed
+    class="red"
     app>
     <v-layout column fill-height justify-space-between align-content-space-between>
       <v-flex>
-        <v-toolbar flat dark color="secondary">
-          <v-list>
-            <v-list-tile>
-              <v-list-tile-title class="headline font-weight-bold custom-font">
-                thomas waltrich
-              </v-list-tile-title>
-            </v-list-tile>
-          </v-list>
-        </v-toolbar>
+        <div class="display-1 center pa-2">
+          thomas waltrich
+        </div>
         <v-layout justify-center>
           <v-flex>
             <div class="text-xs-center">
