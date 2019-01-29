@@ -36,13 +36,24 @@
       bgColor: function () {
         const paths = {
           '/': 'cyan lighten-2',
-          '/projects': 'pink lighten-3',
+          '/projects': 'red lighten-2',
           '/recordings': 'yellow lighten-2',
           '/video': 'orange lighten-3',
           '/teaching': 'blue-grey lighten-2',
           '/gigs': 'brown lighten-2',
           '/contact': 'blue darken-4'
         }
+        /*
+        const paths = {
+          '/': 'grey lighten-1',
+          '/projects': 'grey lighten-1',
+          '/recordings': 'grey lighten-1',
+          '/video': 'grey lighten-1',
+          '/teaching': 'grey lighten-1',
+          '/gigs': 'grey lighten-1',
+          '/contact': 'grey lighten-1'
+        }
+        */
         return paths[this.$route.path]
       }
     }

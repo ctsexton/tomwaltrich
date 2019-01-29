@@ -59,9 +59,9 @@ export default {
     bgColor () {
       const paths = {
         '/': 'grey darken-4',
-        '/projects': 'cyan darken-2',
+        '/projects': 'cyan darken-4',
         '/recordings': 'red',
-        '/video': 'pink darken-4',
+        '/video': 'yellow darken-2',
         '/teaching': 'green lighten-1',
         '/gigs': 'blue-grey',
         '/contact': 'yellow darken-3'

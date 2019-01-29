@@ -1,8 +1,8 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
+  <v-layout justify-center>
+    <v-flex xs12 sm8 md8>
       <v-img :src="imgPath"/>
-      <v-card max-width="900px" class="project-card">
+      <v-card class="project-card">
         <v-card-text class="subheading">
           <span id="bio" v-html="bio"></span>
         </v-card-text>
