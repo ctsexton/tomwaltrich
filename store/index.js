@@ -7,7 +7,8 @@ export const state = () => ({
   videos: {},
   recordings: {},
   currentPage: 'about',
-  generalConfig: {}
+  generalConfig: {},
+  gigs: {}
 })
 
 export const mutations = {
@@ -35,6 +36,9 @@ export const mutations = {
   replaceConfig (state, newState) {
     state.generalConfig = newState
   },
+  replaceGigs (state, newState) {
+    state.gigs = newState
+  },
   toggleSubmenu (state, info) {
     state.menuitems[info.name].open = !state.menuitems[info.name].open
   },
@@ -54,6 +58,7 @@ export const actions = {
     const videos = await $axios.$get(`${apiUrl}/collections/get/videos?token=${token}`)
     const recordings = await $axios.$get(`${apiUrl}/collections/get/recordings?token=${token}`)
     const config = await $axios.$get(`${apiUrl}/singletons/get/config?token=${token}`)
+    const gigs = await $axios.$get(`${apiUrl}/singletons/get/gigs?token=${token}`)
     const menuitems = {
       about: {
         name: 'about',
@@ -93,6 +98,7 @@ export const actions = {
     commit('replaceProjects', projects.entries)
     commit('replaceTeaching', teaching)
     commit('replaceConfig', config)
+    commit('replaceGigs', gigs)
     commit('replaceRecordings', recordings)
   }
 }

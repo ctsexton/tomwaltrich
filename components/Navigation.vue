@@ -58,13 +58,13 @@ export default {
     config () { return this.$store.state.generalConfig },
     bgColor () {
       const paths = {
-        '/': 'grey darken-4',
-        '/projects': 'cyan darken-4',
-        '/recordings': 'red',
-        '/video': 'yellow darken-2',
+        '/': 'blue darken-2',
+        '/projects': 'red',
+        '/recordings': 'yellow darken-2',
+        '/video': 'purple accent',
         '/teaching': 'green lighten-1',
-        '/gigs': 'blue-grey',
-        '/contact': 'yellow darken-3'
+        '/gigs': 'yellow darken-3',
+        '/contact': 'grey darken-4'
       }
       return paths[this.$route.path]
     }

@@ -58,17 +58,28 @@ export default {
     basePath: function () { return process.env.cockpit.realUrl },
     imgPath: function () {
       const realUrl = process.env.cockpit.realUrl
-      const localPath = this.$store.state.bio.image.path
+      const localPath = this.$store.state.gigs.image.path
       return `${realUrl}${localPath}`
     }
   },
   async asyncData ({ $axios }) {
     const timeSplit = encodeURIComponent(moment().tz('Australia/Melbourne').startOf('day').toISOString())
     const key = 'AIzaSyAm_dRekgQvAVII_FB-iWOIbGQzu8HaD0Y'
-    const calId = '18g59ravob7ga6o28hsaij5hno%40group.calendar.google.com'
+    const calId = '65gs0chifplj1sng048qvu6bpg@group.calendar.google.com'
     const upcomingPath = `https://www.googleapis.com/calendar/v3/calendars/${calId}/events?orderBy=startTime&singleEvents=true&timeMin=${timeSplit}&key=${key}`
     const pastPath = `https://www.googleapis.com/calendar/v3/calendars/${calId}/events?orderBy=startTime&singleEvents=true&timeMax=${timeSplit}&key=${key}`
-    const upcoming = await $axios.$get(upcomingPath)
+    let upcoming = await $axios.$get(upcomingPath)
+    if (upcoming.items.length === 0) {
+      upcoming = {
+        items: [{
+          summary: 'No Upcoming Events',
+          location: '',
+          start: { dateTime: '' },
+          id: 0
+        }]
+      }
+    }
+    console.log(upcoming)
     const past = await $axios.$get(pastPath)
     return { upcoming, past }
   },

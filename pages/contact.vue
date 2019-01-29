@@ -1,19 +1,21 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-card flat width="100%" max-width="750px" class="pa-2">
-      <v-img :src="contact"></v-img>
-    </v-card>
-    <v-card flat width="100%" max-width="750px" class="pa-4">
-      <v-flex>
-        <span class="display-1">Contact Tom</span>
-        <v-form>
-          <v-text-field label="Name" required></v-text-field>
-          <v-text-field label="Email" required></v-text-field>
-          <v-textarea label="Message" required></v-textarea>
-          <v-btn left large color="primary">Submit</v-btn>
-        </v-form>
-      </v-flex>
-    </v-card>
+  <v-layout justify-center align-center>
+    <v-flex xs12 md8>
+      <v-card flat width="100%" class="semiTransparent">
+        <v-img :src="contact"></v-img>
+      </v-card>
+      <v-card flat width="100%" class="pa-4 semiTransparent">
+        <v-flex>
+          <span class="display-1">Contact Tom</span>
+          <v-form>
+            <v-text-field label="Name" required></v-text-field>
+            <v-text-field label="Email" required></v-text-field>
+            <v-textarea label="Message" required></v-textarea>
+            <v-btn left large color="secondary">Submit</v-btn>
+          </v-form>
+        </v-flex>
+      </v-card>
+    </v-flex>
   </v-layout>
 </template>
 <script>
@@ -27,3 +29,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+>>>.semiTransparent {
+  background: rgba(0,0,0,0.5);
+}
+</style>
