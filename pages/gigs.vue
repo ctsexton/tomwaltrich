@@ -3,12 +3,14 @@
     <v-flex xs12 grow>
       <v-layout justify-center>
         <v-flex xs8>
-          <v-img :src="imgPath"/>
-          <v-list three-line class="semiTransparent">
+          <v-card flat class="standard-card">
+            <v-img :src="imgPath"/>
+          </v-card>
+          <v-list two-line class="semiTransparent">
             <v-list-group value="true">
               <v-list-tile slot="activator">
                 <v-list-tile-content>
-                  <v-list-tile-title class="display-1 expansive">Upcoming Events</v-list-tile-title>
+                  <v-list-tile-title class="headline expansive">Upcoming Events</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>        
               <v-card
@@ -19,25 +21,25 @@
                 >
                 <v-divider />
                 <v-card-text class="headline pt-4 pb-2">{{ event.summary }}</v-card-text>
-                <v-card-text class="title py-1">{{ event.start.dateTime | formatDateTime }}</v-card-text>
-                <v-card-text class="subheading pt-0 pb-4">{{ event.location }}</v-card-text>
+                <v-card-text class="subheading py-1">{{ event.start.dateTime | formatDateTime }}</v-card-text>
+                <v-card-text class="body-2 pt-0 pb-4">{{ event.location }}</v-card-text>
               </v-card>
             </v-list-group>
             <v-list-group>
               <v-list-tile slot="activator">
                 <v-list-tile-content>
-                  <v-list-tile-title class="display-1 expansive">Past Events</v-list-tile-title>
+                  <v-list-tile-title class="headline expansive">Past Events</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>        
               <v-card
                 v-for="event in past.items.slice().reverse()" 
                 :key="event.id"
-                class="transparent"
+                class="transparent text-xs-center"
                 >
                 <v-divider />
-                <v-card-title class="headline py-2">{{ event.summary }}</v-card-title>
-                <v-card-text class="title py-1">{{ event.start.dateTime | formatDateTime }}</v-card-text>
-                <v-card-text class="subheading pt-0 pb-2">{{ event.location }}</v-card-text>
+                <v-card-text class="headline py-2">{{ event.summary }}</v-card-text>
+                <v-card-text class="subheading py-1">{{ event.start.dateTime | formatDateTime }}</v-card-text>
+                <v-card-text class="body-2 pt-0 pb-2">{{ event.location }}</v-card-text>
               </v-card>
             </v-list-group>
           </v-list>

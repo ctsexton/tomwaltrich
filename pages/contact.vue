@@ -1,10 +1,10 @@
 <template>
   <v-layout justify-center align-center>
     <v-flex xs12 md8>
-      <v-card flat width="100%" class="semiTransparent">
+      <v-card flat width="100%" class="standard-card">
         <v-img :src="contact"></v-img>
       </v-card>
-      <v-card flat width="100%" class="pa-4 semiTransparent">
+      <v-card width="100%" class="pa-4 standard-card">
         <v-flex>
           <span class="display-1">Contact Tom</span>
           <v-form>

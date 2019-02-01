@@ -21,7 +21,7 @@
     data () {
       return {
         items: [
-          { title: 'about', to: '/' },
+          { title: 'about', to: '/about' },
           { title: 'projects', to: '/projects' },
           { title: 'recordings', to: '/recordings' },
           { title: 'video', to: '/video' },
@@ -35,25 +35,15 @@
     computed: {
       bgColor: function () {
         const paths = {
-          '/': 'cyan lighten-4',
-          '/projects': 'red lighten-3',
-          '/recordings': 'yellow lighten-2',
-          '/video': 'green lighten-3',
-          '/teaching': 'blue-grey lighten-2',
-          '/gigs': 'blue darken-4',
+          '/': 'indigo darken-4',
+          '/about': 'blue-grey darken-2',
+          '/projects': 'orange darken-5',
+          '/recordings': 'green darken-4',
+          '/video': 'pink darken-4',
+          '/teaching': 'yellow accent-3',
+          '/gigs': 'red accent-2',
           '/contact': 'grey lighten-1'
         }
-        /*
-        const paths = {
-          '/': 'grey lighten-1',
-          '/projects': 'grey lighten-1',
-          '/recordings': 'grey lighten-1',
-          '/video': 'grey lighten-1',
-          '/teaching': 'grey lighten-1',
-          '/gigs': 'grey lighten-1',
-          '/contact': 'grey lighten-1'
-        }
-        */
         return paths[this.$route.path]
       }
     }
@@ -75,5 +65,6 @@
   background-image: url('~/squairy.png');
   background-repeat: repeat;
   background-attachment: scroll;
+  position: relative;
 }
 </style>
