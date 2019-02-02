@@ -1,11 +1,9 @@
 <template>
-  <v-layout justify-center wrap>
-    <v-flex v-for="video in videos" :key="video.title" class="my-5" xs12 sm10 md10 lg8>
-      <v-card flat class="standard-card">
-        <v-img :src="`${basePath}${video.image.path}`" />
-      </v-card>
-      <v-card class="standard-card">
-        <v-card-title class="display-1">{{ video.title }}</v-card-title>
+  <v-layout justify-center align-center>
+    <v-flex xs12 sm8 md6>
+      <v-card v-for="video in videos" :key="video.title" class="standard-card break-word my-5">
+        <v-img max-width="100%" :src="`${basePath}${video.image.path}`" />
+        <v-card-text class="headline">{{ video.title }}</v-card-text>
         <v-card-text class="subheading"><span v-html="video.description"></span></v-card-text>
       </v-card>
     </v-flex>
@@ -20,18 +18,11 @@ export default {
 }
 </script>
 <style scoped>
->>>.remove-border {
-  border: none;
-}
->>>.img-overlay {
-  background: rgba(0,0,0,0.75);
-  border-radius: 0px;
-}
->>>.limit {
-  max-width: 900px;
-}
 >>>a {
   color: white;
+}
+>>>.break-word {
+  word-wrap: break-word;
 }
 </style>
 

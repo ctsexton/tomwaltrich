@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center align-center>
-    <v-flex xs12 md8>
+    <v-flex xs12 sm8 md6>
       <v-card flat width="100%" class="standard-card">
         <v-img :src="contact"></v-img>
       </v-card>

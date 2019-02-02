@@ -4,11 +4,12 @@
       v-model="drawer"
       fixed
       :class="bgColor"
+      width="240"
       app
       >
       <v-layout column fill-height justify-space-between align-content-space-between>
         <v-flex>
-          <div class="display-1 center pa-2">
+          <div class="headline center pa-2">
             thomas waltrich
           </div>
           <nuxt-link to="/">
