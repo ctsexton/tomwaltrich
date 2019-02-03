@@ -23,9 +23,9 @@ For detailed explanation on how things work, check out the [Nuxt.js](https://git
 
 ## To Do
 
- - make all borders consistent
- - make colors consistent (dark/light shade for each page)
- - project texts under images
- - center recordings
  - hook up contact form
+    - form validation
+    - key url/apikey
+ - responsive design
+    - add transparent toolbar on mobile for menu icon
  - more social media icons (projects, maybe FB page)

@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap align-center justify-center>
     <v-flex xs12 md8>
-      <v-card flat class="transparent pa-4">
+      <v-card flat class="transparent">
         <v-img src="/twm_yellow.svg" class="cover"/>
       </v-card>
     </v-flex>
