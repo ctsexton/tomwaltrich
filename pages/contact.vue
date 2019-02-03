@@ -90,9 +90,9 @@ export default {
       return `${realPath}${imgPath}`
     },
     formUrl: function () {
-      const apiUrl = process.env.cockpit.apiUrl
+      const apiUrl = process.env.cockpit.realUrl
       const token = process.env.cockpit.apiToken
-      return `${apiUrl}/forms/submit/Contact?token=${token}`
+      return `${apiUrl}/api/forms/submit/Contact?token=${token}`
     },
     nameErrors () {
       const errors = []
