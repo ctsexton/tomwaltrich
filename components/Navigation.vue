@@ -33,6 +33,9 @@
           <v-btn icon flat :href="config.instagram" color="white">
             <v-icon x-large>fab fa-instagram</v-icon>
           </v-btn>
+          <v-btn icon flat :href="config.facebook" color="white">
+            <v-icon x-large>fab fa-facebook</v-icon>
+          </v-btn>
         </div>
       </v-layout>
     </v-navigation-drawer>
