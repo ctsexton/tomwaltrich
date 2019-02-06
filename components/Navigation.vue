@@ -59,11 +59,11 @@ export default {
     bgColor () {
       const paths = {
         '/': 'indigo accent-3',
-        '/about': 'blue-grey darken-3',
+        '/about': 'grey darken-2',
         '/projects': 'orange accent-4',
         '/recordings': 'light-green',
         '/video': 'pink accent-2',
-        '/teaching': 'yellow darken-2',
+        '/teaching': 'yellow darken-3',
         '/gigs': 'deep-orange accent-3',
         '/contact': 'grey darken-4'
       }

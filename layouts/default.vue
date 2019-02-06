@@ -21,7 +21,7 @@
     data () {
       return {
         items: [
-          { title: 'about', to: '/about' },
+          { title: 'about', to: '/' },
           { title: 'projects', to: '/projects' },
           { title: 'recordings', to: '/recordings' },
           { title: 'video', to: '/video' },
@@ -35,12 +35,11 @@
     computed: {
       bgColor: function () {
         const paths = {
-          '/': 'indigo darken-4',
-          '/about': 'blue-grey darken-2',
-          '/projects': 'orange darken-5',
-          '/recordings': 'green darken-4',
-          '/video': 'pink darken-4',
-          '/teaching': 'yellow accent-3',
+          '/': 'cyan lighten-4',
+          '/projects': 'orange lighten-1',
+          '/recordings': 'light-green lighten-1',
+          '/video': 'pink lighten-2',
+          '/teaching': 'yellow',
           '/gigs': 'red accent-2',
           '/contact': 'grey lighten-1'
         }

@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height grid-list-md>
+  <v-container fill-height grid-list-md class="pt-5">
     <v-layout row justify-space-around align-start wrap>
       <v-flex xs12 md6 v-for="video in videos" :key="video.title">
         <v-card>
