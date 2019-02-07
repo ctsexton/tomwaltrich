@@ -4,16 +4,16 @@ const apiAddress = process.env.DEPLOY_ENV === 'SERVER' ? {
       apiUrl: 'http://thomaswaltrich-cms/api',
       apiToken: '9d4d784998060fba6ce3b6b3c9b617',
       baseUrl: 'http://thomaswaltrich-cms',
-      realUrl: 'https://tom.camsexton.com',
+      realUrl: 'https://admin.thomaswaltrichmusic.com',
     }
   }
 } : {
   env: {
     cockpit: {
-      apiUrl: 'https://tom.camsexton.com/api',
+      apiUrl: 'https://admin.thomaswaltrichmusic.com/api',
       apiToken: '9d4d784998060fba6ce3b6b3c9b617',
-      baseUrl: 'https://tom.camsexton.com',
-      realUrl: 'https://tom.camsexton.com',
+      baseUrl: 'https://admin.thomaswaltrichmusic.com',
+      realUrl: 'https://admin.thomaswaltrichmusic.com',
     }
   }
 }
